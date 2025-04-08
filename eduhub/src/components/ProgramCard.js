@@ -1,25 +1,25 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Star, StarOff } from 'lucide-react'; // optional icons if you're using lucide
+import { Star, StarOff } from 'lucide-react';
 
 const SchoolCard = ({ imageSrc, name, description, tags = [], linkTo, deadline }) => {
   const navigate = useNavigate();
   const [isFavorited, setIsFavorited] = useState(false);
 
   return (
-    <div className="flex bg-gray-100 rounded-xl shadow-md overflow-hidden p-4 hover:shadow-lg transition">
-      {/* School image */}
-      <div className="w-1/3 flex-shrink-0">
+    <div className="flex flex-col sm:flex-row h-48 bg-gray-100 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition sm:items-stretch">
+      {/* Image Container */}
+      <div className="w-full sm:w-1/3 flex-shrink-0 h-full">
         <img
           src={imageSrc}
           alt={`${name} campus`}
-          className="w-full h-full object-cover rounded-lg"
+          className="w-full h-full object-cover"
         />
       </div>
 
-      {/* Content section */}
-      <div className="flex flex-col justify-between flex-grow px-6 py-2">
-        {/* Top: Name + Favorite */}
+      {/* Content Section */}
+      <div className="flex flex-col justify-between flex-grow p-4">
+        {/* Header: Name, Tags, & Favorite */}
         <div className="flex justify-between items-start">
           <div>
             <h2 className="text-xl font-semibold">{name}</h2>
@@ -35,11 +35,11 @@ const SchoolCard = ({ imageSrc, name, description, tags = [], linkTo, deadline }
             </div>
           </div>
 
-          {/* Favorite Button */}
-          <div className="relative">
+          {/* Favorite Star */}
+          <div className="flex-shrink-0 flex items-center">
             <button
               onClick={() => setIsFavorited(!isFavorited)}
-              className="text-indigo-500 hover:text-indigo-700"
+              className="text-indigo-500 hover:text-indigo-700 ml-auto"
               title={isFavorited ? 'Unfavorite' : 'Favorite'}
             >
               {isFavorited ? <Star fill="currentColor" /> : <StarOff />}
@@ -47,16 +47,18 @@ const SchoolCard = ({ imageSrc, name, description, tags = [], linkTo, deadline }
           </div>
         </div>
 
-        {/* Middle: Description */}
-        <p className="text-sm text-gray-700 mt-2">{description}</p>
+        {/* Description with clamping for ellipsis (requires Tailwind line-clamp plugin) */}
+        <p className="text-sm text-gray-700 mt-2 flex-grow line-clamp-3">
+          {description}
+        </p>
 
-        {/* Bottom: Deadline + Buttons */}
-        <div className="mt-4 flex justify-between items-center">
+        {/* Footer: Deadline & Action Buttons */}
+        <div className="mt-4 flex flex-col sm:flex-row justify-between items-start sm:items-center">
           <p className="text-sm text-gray-600">
             📅 Deadline: <span className="font-medium">{deadline}</span>
           </p>
 
-          <div className="flex gap-3">
+          <div className="mt-2 sm:mt-0 flex gap-3">
             <button
               onClick={() => navigate(linkTo)}
               className="bg-indigo-200 hover:bg-indigo-300 text-indigo-800 px-4 py-2 rounded-lg text-sm font-semibold"
