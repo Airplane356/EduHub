@@ -5,7 +5,7 @@ import Navbar from '../components/Navbar';
 import programs from '../data/ProgramList.json';
 import MrBirch from '../assets/MrBirch.png';
 
-// Map image filenames to their imported assets.
+
 const imageMap = {
   "MrBirch.png": MrBirch,
 };
@@ -14,10 +14,8 @@ const ProgramDirectory = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedTags, setSelectedTags] = useState([]);
 
-  // Extract all unique tags from the imported programs.
   const allTags = Array.from(new Set(programs.flatMap((program) => program.tags)));
 
-  // Handler to update selected tags based on checkbox changes.
   const handleTagChange = (e, tag) => {
     if (e.target.checked) {
       setSelectedTags([...selectedTags, tag]);
@@ -26,13 +24,14 @@ const ProgramDirectory = () => {
     }
   };
 
-  // Filter programs by search term and selected tags, then sort alphabetically.
   const filteredPrograms = programs
     .filter((program) => {
       const lowerSearch = searchTerm.toLowerCase();
       const matchesSearch =
         program.school.toLowerCase().includes(lowerSearch) ||
-        program.description.toLowerCase().includes(lowerSearch);
+        program.description.toLowerCase().includes(lowerSearch) ||
+        program.tags.some((tag) => tag.toLowerCase().includes(lowerSearch));
+
       const matchesTags =
         selectedTags.length === 0 ||
         program.tags.some((tag) => selectedTags.includes(tag));
