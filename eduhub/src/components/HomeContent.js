@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import happyChildren from '../assets/happychildren.png';
 import compChildren from '../assets/compChildren.jpg';
 
@@ -13,7 +14,9 @@ export default function HomeContent() {
             We empower students to explore their interests by facilitating the grade 8 to high school transition.
             Apply to various programs ranging from STEM to Arts to the International Baccalaureate!
           </p>
-          <button className="bg-gray-200 hover:bg-gray-300 px-5 py-2 rounded-md transition">View Regional Programs</button>
+          <Link to="/programs">
+            <button className="bg-gray-200 hover:bg-gray-300 px-5 py-2 rounded-md transition">View Regional Programs</button>
+          </Link>
         </div>
       </div>
 
@@ -24,7 +27,9 @@ export default function HomeContent() {
           <p className="mb-4 text-gray-700 text-sm">
             We provide a centralized portal to view your child’s application statuses for all the programs they applied to.
           </p>
-          <button className="bg-gray-200 hover:bg-gray-300 px-5 py-2 rounded-md transition">View Application Status</button>
+          <Link to="/application">
+            <button className="bg-gray-200 hover:bg-gray-300 px-5 py-2 rounded-md transition">View Application Status</button>
+          </Link>
         </div>
         <img src={compChildren} alt="girl on laptop" className="rounded-2xl w-72 shadow-lg" />
       </div>
