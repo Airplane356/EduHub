@@ -1,10 +1,13 @@
+import happyChildren from '../assets/happychildren.png';
+import compChildren from '../assets/compChildren.jpg';
+
 export default function HomeContent() {
   return (
     <div className="text-center px-8">
       <h2 className="text-4xl font-light mt-12 mb-12">Learn, Share, <span className="font-bold">Empower</span></h2>
 
       <div className="flex flex-col md:flex-row items-center justify-center gap-12 mb-20">
-        <img src="https://i.imgur.com/4M7cgPb.png" alt="kids" className="rounded-2xl w-72 shadow-lg" />
+        <img src={happyChildren} alt="kids" className="rounded-2xl w-72 shadow-lg" />
         <div className="text-left max-w-md">
           <p className="mb-4 text-gray-700 text-sm">
             We empower students to explore their interests by facilitating the grade 8 to high school transition.
@@ -23,7 +26,7 @@ export default function HomeContent() {
           </p>
           <button className="bg-gray-200 hover:bg-gray-300 px-5 py-2 rounded-md transition">View Application Status</button>
         </div>
-        <img src="https://i.imgur.com/df3dY3F.png" alt="girl on laptop" className="rounded-2xl w-72 shadow-lg" />
+        <img src={compChildren} alt="girl on laptop" className="rounded-2xl w-72 shadow-lg" />
       </div>
     </div>
   );
