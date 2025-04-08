@@ -67,11 +67,16 @@ const SchoolCard = ({
             📅 Deadline: <span className="font-medium">{deadline}</span>
           </p>
           <div className="mt-2 sm:mt-0 flex gap-3">
-            <button
-              className="bg-indigo-200 hover:bg-indigo-300 text-indigo-800 px-4 py-2 rounded-lg text-sm font-semibold"
-            >
+          <a
+            href="http://www.yrdsb.ca/schools/millikenmills.hs/IB/Pages/default.aspx"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <button className="bg-indigo-200 hover:bg-indigo-300 text-indigo-800 px-4 py-2 rounded-lg text-sm font-semibold">
               More Info
             </button>
+          </a>
+
             <button
               onClick={() => navigate('/application')}
               className="bg-indigo-200 hover:bg-indigo-300 text-indigo-800 px-4 py-2 rounded-lg text-sm font-semibold"
