@@ -19,9 +19,9 @@ const monthData = [
 ];
 
 const permanentEvents = {
-  '11-14': ['Milliken Mills HS Deadline'],
-  '11-9': ['Markham District HS Deadline'],
-  '0-14': ['Middlefield CI Deadline', 'Bill Crothers SS Deadline', 'Unionville HS Deadline'],
+  '0-20': ['Milliken Mills HS Deadline'],
+  '0-16': ['Markham DHS Deadline'],
+  '0-14': ['Bill Crothers SS Deadline', 'Unionville HS Deadline'],
 };
 
 export default function Calendar() {
