@@ -6,7 +6,8 @@
       "description": "goated",
       "imageSrc": "MrBirch.png",
       "linkTo": "/programs/ib",
-      "deadline": "December 14, 2024"
+      "deadline": "December 14, 2024",
+      "status": "N/A"
     },
     {
       "id": 2,
@@ -15,7 +16,8 @@
       "description": "The Advanced Placement Program allows students to take college-level courses and exams while still in high school.",
       "imageSrc": "MrBirch.png",
       "linkTo": "/programs/ap",
-      "deadline": "December 9, 2024"
+      "deadline": "December 9, 2024",
+      "status": "N/A"
     },
     {
       "id": 3,
@@ -24,7 +26,8 @@
       "description": "The Specialist High Skills Major (SHSM) in Business provides students with a strong foundation in business education.",
       "imageSrc": "MrBirch.png",
       "linkTo": "/programs/shsm-business",
-      "deadline": "January 14, 2025"
+      "deadline": "January 14, 2025",
+      "status": "N/A"
     },
     {
       "id": 4,
@@ -33,7 +36,8 @@
       "description": "",
       "imageSrc": "MrBirch.png",
       "linkTo": "/programs/shsm-business",
-      "deadline": "January 14, 2025"
+      "deadline": "January 14, 2025",
+      "status": "N/A"
     },
     {
       "id": 5,
@@ -42,6 +46,7 @@
       "description": "",
       "imageSrc": "MrBirch.png",
       "linkTo": "/programs/shsm-business",
-      "deadline": "January 14, 2025"
+      "deadline": "January 14, 2025",
+      "status": "N/A"
     }
 ]  
