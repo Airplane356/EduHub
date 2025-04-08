@@ -9,23 +9,24 @@ export default function AdminNavbar() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const getPageTitle = () => {
+    console.log('Current Path:', location.pathname);
     switch (location.pathname) {
-      case '/AdminHome':
+      case '/adminhome':
         return 'Home';
-      case 'AdminPrograms':
+      case '/adminapplication':
         return 'Programs and Schools';
-      case 'AdminApplications':
+      case '/adminreview':
         return 'Application Portal';
       default:
         return 'EduHub';
     }
-  };
+  };  
 
   return (
     <div className="flex justify-between items-center px-6 py-4 border-b bg-white shadow-sm">
       <div className="flex items-center space-x-4">
-        {location.pathname !== '/AdminHome' &&(
-          <Link to="/AdminHome">
+        {location.pathname !== '/adminhome' &&(
+          <Link to="/adminhome">
             <FaArrowLeft className="text-gray-500 hover:text-black cursor-pointer" />
           </Link>
         )}
