@@ -4,20 +4,18 @@ import johnPork from '../assets/johnpork.jpeg';
 import { useLocation } from 'react-router-dom';
 import { useState } from 'react';
 
-export default function Navbar() {
+export default function AdminNavbar() {
   const location = useLocation();
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const getPageTitle = () => {
     switch (location.pathname) {
-      case '/':
+      case '/AdminHome':
         return 'Home';
-      case '/programs':
+      case 'AdminPrograms':
         return 'Programs and Schools';
-      case '/application':
+      case 'AdminApplications':
         return 'Application Portal';
-      case '/calendar':
-        return 'Calendar';
       default:
         return 'EduHub';
     }
@@ -26,8 +24,8 @@ export default function Navbar() {
   return (
     <div className="flex justify-between items-center px-6 py-4 border-b bg-white shadow-sm">
       <div className="flex items-center space-x-4">
-        {location.pathname !== '/' &&(
-          <Link to="/">
+        {location.pathname !== '/AdminHome' &&(
+          <Link to="/AdminHome">
             <FaArrowLeft className="text-gray-500 hover:text-black cursor-pointer" />
           </Link>
         )}
