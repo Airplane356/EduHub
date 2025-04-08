@@ -68,7 +68,6 @@ const SchoolCard = ({
           </p>
           <div className="mt-2 sm:mt-0 flex gap-3">
             <button
-              onClick={() => navigate(linkTo)}
               className="bg-indigo-200 hover:bg-indigo-300 text-indigo-800 px-4 py-2 rounded-lg text-sm font-semibold"
             >
               More Info

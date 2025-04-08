@@ -4,7 +4,7 @@ import Programs from './pages/Programs';
 import Application from './pages/Application';
 import Calendar from './pages/Calendar';
 import AdminHome from './AdminPages/AdminHome';
-import AdminPrograms from './AdminPages/AdminPrograms';
+import AdminReview from './AdminPages/Adminview';
 import AdminApplication from './AdminPages/AdminApplication';
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
         <Route path="/application" element={<Application />} />
         <Route path="/calendar" element={<Calendar />}/>
         <Route path="/adminhome" element={<AdminHome />} />
-        <Route path="/adminprograms" element={<AdminPrograms />} />
+        <Route path="/adminreview" element={<AdminReview />} />
         <Route path="/adminapplication" element={<AdminApplication />} />
       </Routes>
     </Router>

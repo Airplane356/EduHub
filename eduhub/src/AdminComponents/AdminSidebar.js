@@ -5,8 +5,8 @@ export default function AdminSidebar() {
   const location = useLocation();
 
   const links = [
-    { path: '/adminhome', label: 'Home' },
-    { path: '/adminprograms', label: 'Programs & Schools' },
+    { path: '/adminhome', label: 'Admin Home' },
+    { path: '/adminreview', label: 'Review Application' },
     { path: '/adminapplication', label: 'Application Portal' },
   ];
 
