@@ -1,0 +1,47 @@
+[
+    {
+      "id": 1,
+      "school": "Milliken Mills High School",
+      "tags": ["IB", "SHSM"],
+      "description": "goated",
+      "imageSrc": "MrBirch.png",
+      "linkTo": "/programs/ib",
+      "deadline": "December 14, 2024"
+    },
+    {
+      "id": 2,
+      "school": "Markham District High School",
+      "tags": ["AP", "SHSM"],
+      "description": "The Advanced Placement Program allows students to take college-level courses and exams while still in high school.",
+      "imageSrc": "MrBirch.png",
+      "linkTo": "/programs/ap",
+      "deadline": "December 9, 2024"
+    },
+    {
+      "id": 3,
+      "school": "Middlefield Collegiate Institute",
+      "tags": ["SHSM"],
+      "description": "The Specialist High Skills Major (SHSM) in Business provides students with a strong foundation in business education.",
+      "imageSrc": "MrBirch.png",
+      "linkTo": "/programs/shsm-business",
+      "deadline": "January 14, 2025"
+    },
+    {
+      "id": 4,
+      "school": "Bill Crothers Secondary School",
+      "tags": ["HPA"],
+      "description": "",
+      "imageSrc": "MrBirch.png",
+      "linkTo": "/programs/shsm-business",
+      "deadline": "January 14, 2025"
+    },
+    {
+      "id": 5,
+      "school": "Unionville High School",
+      "tags": ["Arts", "STEM"],
+      "description": "",
+      "imageSrc": "MrBirch.png",
+      "linkTo": "/programs/shsm-business",
+      "deadline": "January 14, 2025"
+    }
+]  
