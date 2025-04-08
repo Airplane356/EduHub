@@ -6,8 +6,7 @@ export default function AdminSidebar() {
 
   const links = [
     { path: '/adminhome', label: 'Admin Home' },
-    { path: '/adminreview', label: 'Review Application' },
-    { path: '/adminapplication', label: 'Application Portal' },
+    { path: '/adminreview', label: 'Review Application' }
   ];
 
   return (
