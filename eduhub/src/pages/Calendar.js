@@ -5,7 +5,7 @@ import Navbar from '../components/Navbar';
 const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 const monthData = [
   { month: 'January', days: 31 },
-  { month: 'February', days: 28 }, // Leap year handling not added, but can be.
+  { month: 'February', days: 28 },
   { month: 'March', days: 31 },
   { month: 'April', days: 30 },
   { month: 'May', days: 31 },
@@ -18,12 +18,18 @@ const monthData = [
   { month: 'December', days: 31 },
 ];
 
+const permanentEvents = {
+  '11-14': ['Milliken Mills HS Deadline'],
+  '11-9': ['Markham District HS Deadline'],
+  '0-14': ['Middlefield CI Deadline', 'Bill Crothers SS Deadline', 'Unionville HS Deadline'],
+};
+
 export default function Calendar() {
   const [selectedDay, setSelectedDay] = useState(null);
   const [currentMonthIndex, setCurrentMonthIndex] = useState(0);
   const [events, setEvents] = useState({});
   const [newEvent, setNewEvent] = useState('');
-  
+
   const closeOverlay = () => setSelectedDay(null);
 
   const goToNextMonth = () => {
@@ -37,16 +43,17 @@ export default function Calendar() {
   };
 
   const currentMonth = monthData[currentMonthIndex];
-  const firstDayOfMonth = 0; // You can replace this with dynamic logic for first day of month.
+  const firstDayOfMonth = 0;
 
   const handleAddEvent = () => {
     if (newEvent.trim()) {
       setEvents(prevEvents => {
         const updatedEvents = { ...prevEvents };
-        if (!updatedEvents[selectedDay]) {
-          updatedEvents[selectedDay] = [];
+        const key = `${currentMonthIndex}-${selectedDay}`;
+        if (!updatedEvents[key]) {
+          updatedEvents[key] = [];
         }
-        updatedEvents[selectedDay].push(newEvent);
+        updatedEvents[key].push(newEvent);
         return updatedEvents;
       });
       setNewEvent('');
@@ -54,11 +61,12 @@ export default function Calendar() {
   };
 
   const handleClearEvent = (eventIndex) => {
+    const key = `${currentMonthIndex}-${selectedDay}`;
     setEvents(prevEvents => {
       const updatedEvents = { ...prevEvents };
-      updatedEvents[selectedDay].splice(eventIndex, 1); // Remove the specific event
-      if (updatedEvents[selectedDay].length === 0) {
-        delete updatedEvents[selectedDay]; // If no events left, remove the day entry
+      updatedEvents[key].splice(eventIndex, 1);
+      if (updatedEvents[key].length === 0) {
+        delete updatedEvents[key];
       }
       return updatedEvents;
     });
@@ -69,11 +77,8 @@ export default function Calendar() {
       <Sidebar />
       <div className="flex-1 flex flex-col">
         <Navbar />
-
         <div className="p-4">
           <h1 className="text-2xl font-bold mb-4">Calendar</h1>
-
-          {/* Month Navigation */}
           <div className="flex justify-between items-center mb-4">
             <button
               onClick={goToPreviousMonth}
@@ -89,74 +94,71 @@ export default function Calendar() {
               Next
             </button>
           </div>
-
-          {/* Weekday Headers */}
           <div className="grid grid-cols-7 gap-2 text-center font-semibold text-gray-700">
             {daysOfWeek.map((day) => (
               <div key={day}>{day}</div>
             ))}
           </div>
-
-          {/* Calendar Grid */}
           <div className="grid grid-cols-7 gap-2 mt-2">
-            {/* Empty slots before the first day */}
             {Array.from({ length: firstDayOfMonth }).map((_, index) => (
               <div key={index} className="h-24"></div>
             ))}
+            {Array.from({ length: currentMonth.days }).map((_, index) => {
+              const day = index + 1;
+              const key = `${currentMonthIndex}-${day}`;
+              const dayEvents = [...(permanentEvents[key] || []), ...(events[key] || [])];
 
-            {/* Calendar days */}
-            {Array.from({ length: currentMonth.days }).map((_, index) => (
-              <div
-                key={index}
-                className="h-24 bg-white border rounded-lg shadow-sm flex items-center justify-center cursor-pointer hover:bg-blue-100 transition relative"
-                onClick={() => setSelectedDay(index + 1)}
-              >
-                {/* Day number in the top-left corner */}
-                <div className="absolute top-2 left-2 text-gray-400 font-semibold">
-                  {index + 1}
-                </div>
-
-                {/* Display events in a blue box */}
-                {events[index + 1] && (
-                  <div className="absolute left-0 w-full p-2 bg-blue-500 text-white rounded-lg text-xs">
-                    {events[index + 1].map((event, i) => (
-                      <div key={i} className="text-white">
+              return (
+                <div
+                  key={index}
+                  className="h-24 bg-white border rounded-lg shadow-sm flex items-start justify-start cursor-pointer hover:bg-blue-100 transition relative p-1"
+                  onClick={() => setSelectedDay(day)}
+                >
+                  <div className="absolute top-2 left-2 text-gray-400 font-semibold">
+                    {day}
+                  </div>
+                  <div className="mt-5 w-full space-y-1">
+                    {dayEvents.map((event, i) => (
+                      <div key={i} className="bg-blue-500 text-white text-xs px-1 py-0.5 rounded w-full">
                         {event}
                       </div>
                     ))}
                   </div>
-                )}
-              </div>
-            ))}
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
-
-      {/* Fullscreen Overlay */}
       {selectedDay && (
         <div className="fixed inset-0 bg-white z-50 flex items-center justify-center flex-col p-8">
           <h2 className="text-4xl font-bold mb-4">Day {selectedDay}</h2>
           <div className="mb-4">
             <h3 className="text-lg font-semibold mb-2 text-center">Events:</h3>
-            {events[selectedDay] ? (
-              events[selectedDay].map((event, index) => (
-                <div key={index} className="flex justify-between items-center mb-2">
-                  <div className="bg-blue-500 text-white p-2 rounded-lg text-sm w-full">
-                    {event}
+            {(() => {
+              const key = `${currentMonthIndex}-${selectedDay}`;
+              const dayEvents = [...(permanentEvents[key] || []), ...(events[key] || [])];
+              return dayEvents.length ? (
+                dayEvents.map((event, index) => (
+                  <div key={index} className="flex justify-between items-center mb-2">
+                    <div className="bg-blue-500 text-white p-2 rounded-lg text-sm w-full">
+                      {event}
+                    </div>
+                    {!permanentEvents[key]?.includes(event) && (
+                      <button
+                        onClick={() => handleClearEvent(index - (permanentEvents[key]?.length || 0))}
+                        className="ml-2 bg-red-500 text-white px-2 py-1 rounded-lg text-xs"
+                      >
+                        Remove
+                      </button>
+                    )}
                   </div>
-                  <button
-                    onClick={() => handleClearEvent(index)}
-                    className="ml-2 bg-red-500 text-white px-2 py-1 rounded-lg text-xs"
-                  >
-                    Remove
-                  </button>
-                </div>
-              ))
-            ) : (
-              <p>No events for this day</p>
-            )}
+                ))
+              ) : (
+                <p>No events for this day</p>
+              );
+            })()}
           </div>
-
           <input
             type="text"
             value={newEvent}
