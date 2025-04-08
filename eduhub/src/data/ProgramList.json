@@ -2,7 +2,7 @@
     {
       "id": 1,
       "school": "Milliken Mills High School",
-      "tags": ["IB", "SHSM"],
+      "tags": ["IB", "SHSM", "SHSM"],
       "description": "goated",
       "imageSrc": "MrBirch.png",
       "linkTo": "/programs/ib",
@@ -12,7 +12,7 @@
     {
       "id": 2,
       "school": "Markham District High School",
-      "tags": ["AP", "SHSM"],
+      "tags": ["AP", "SHSM", "Gifted"],
       "description": "The Advanced Placement Program allows students to take college-level courses and exams while still in high school.",
       "imageSrc": "MrBirch.png",
       "linkTo": "/programs/ap",
@@ -21,8 +21,8 @@
     },
     {
       "id": 3,
-      "school": "Middlefield Collegiate Institute",
-      "tags": ["SHSM"],
+      "school": "Markville Secondary School",
+      "tags": ["AP", "HPA", "SHSM", "Gifted"],
       "description": "The Specialist High Skills Major (SHSM) in Business provides students with a strong foundation in business education.",
       "imageSrc": "MrBirch.png",
       "linkTo": "/programs/shsm-business",
@@ -32,7 +32,7 @@
     {
       "id": 4,
       "school": "Bill Crothers Secondary School",
-      "tags": ["HPA"],
+      "tags": ["HPA", "SHSM"],
       "description": "",
       "imageSrc": "MrBirch.png",
       "linkTo": "/programs/shsm-business",
@@ -42,7 +42,57 @@
     {
       "id": 5,
       "school": "Unionville High School",
-      "tags": ["Arts", "STEM"],
+      "tags": ["Arts", "STEM", "SHSM"],
+      "description": "",
+      "imageSrc": "MrBirch.png",
+      "linkTo": "/programs/shsm-business",
+      "deadline": "January 14, 2025",
+      "status": "N/A"
+    },
+    {
+      "id": 6,
+      "school": "Pierre Elliott Trudeau High School",
+      "tags": ["SHSM", "FI"],
+      "description": "",
+      "imageSrc": "MrBirch.png",
+      "linkTo": "/programs/shsm-business",
+      "deadline": "January 14, 2025",
+      "status": "N/A"
+    },
+    {
+      "id": 7,
+      "school": "St. Roberts Catholic High School",
+      "tags": ["IB"],
+      "description": "",
+      "imageSrc": "MrBirch.png",
+      "linkTo": "/programs/shsm-business",
+      "deadline": "January 14, 2025",
+      "status": "N/A"
+    },
+    {
+      "id": 8,
+      "school": "Bayview Secondary School",
+      "tags": ["IB", "Gifted", "SHSM"],
+      "description": "",
+      "imageSrc": "MrBirch.png",
+      "linkTo": "/programs/shsm-business",
+      "deadline": "January 14, 2025",
+      "status": "N/A"
+    },
+    {
+      "id": 9,
+      "school": "Thornhill Secondary School",
+      "tags": ["AP", "Gifted", "HPA", "SHSM"],
+      "description": "",
+      "imageSrc": "MrBirch.png",
+      "linkTo": "/programs/shsm-business",
+      "deadline": "January 14, 2025",
+      "status": "N/A"
+    },
+    {
+      "id": 10,
+      "school": "Dr G.W Williams Secondary School",
+      "tags": ["IB", "SHSM", "HPA"],
       "description": "",
       "imageSrc": "MrBirch.png",
       "linkTo": "/programs/shsm-business",
