@@ -4,7 +4,7 @@ import compChildren from '../assets/compChildren.jpg';
 
 export default function HomeContent() {
   return (
-    <div className="text-center px-8">
+    <div className="text-center px-8 bg">
       <h2 className="text-4xl font-light mt-12 mb-12">Learn, Share, <span className="font-bold">Empower</span></h2>
 
       <div className="flex flex-col md:flex-row items-center justify-center gap-12 mb-20">
