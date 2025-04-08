@@ -5,7 +5,7 @@ import ProgramTable from '../components/ProgramTable';
 
 function Application() {
   return (
-    <div className="flex h-screen overflow-hidden bg-gray-50">
+    <div className="flex h-screen overflow-hidden bg-pink-50">
         <Sidebar />
         <div className="flex-1 flex flex-col">
         <Navbar />
