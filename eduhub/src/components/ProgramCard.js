@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { Star, StarOff } from 'lucide-react';
 
 const SchoolCard = ({ imageSrc, name, description, tags = [], linkTo, deadline }) => {
@@ -66,7 +66,7 @@ const SchoolCard = ({ imageSrc, name, description, tags = [], linkTo, deadline }
               More Info
             </button>
             <button
-              onClick={() => navigate(linkTo)}
+              onClick={() => navigate('/application')}
               className="bg-indigo-200 hover:bg-indigo-300 text-indigo-800 px-4 py-2 rounded-lg text-sm font-semibold"
             >
               Apply
