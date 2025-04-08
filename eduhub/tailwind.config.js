@@ -4,11 +4,11 @@ module.exports = {
     theme: {
       extend: {
         colors: {
-          midnight: '#be2579',
-          bluegray: '#c90972',
-          darkblue: '#bd086a',
-          babyblue: '#ff8cca',
-          azure: '#ea06a3'
+          midnight: '#4682B4',
+          bluegray: '#5885af',
+          darkblue: '#274472',
+          babyblue: '#c3e0e5',
+          azure: '#6495ED'
         },
       },
     },

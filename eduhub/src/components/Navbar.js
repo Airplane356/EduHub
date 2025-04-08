@@ -1,4 +1,5 @@
 import { FaCog, FaEnvelope, FaPen } from 'react-icons/fa';
+import johnPork from '../assets/johnpork.jpeg';
 
 export default function Navbar() {
   return (
@@ -8,7 +9,7 @@ export default function Navbar() {
         <FaPen className="text-gray-500 hover:text-black cursor-pointer" />
         <FaCog className="text-gray-500 hover:text-black cursor-pointer" />
         <FaEnvelope className="text-gray-500 hover:text-black cursor-pointer" />
-        <div className="w-8 h-8 bg-purple-600 rounded-full"></div>
+        <div className="w-8 h-8 bg-purple-600 rounded-full overflow-hidden"><img src={johnPork} alt="profile" object-fit="contain"></img></div>
         <span className="font-semibold">John Pork</span>
       </div>
     </div>
