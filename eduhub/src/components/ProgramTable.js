@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import {Star, StarOff} from 'lucide-react';
+import useStarredPrograms from '../hooks/useStarredPrograms';
 import MrBirch from '../assets/MrBirch.png';
 
 const imageMap = {
@@ -9,6 +11,8 @@ const statusOptions = ['Not Started', 'In Progress', 'Submitted'];
 const appStatusOptions = ['Pending', 'Waitlisted', 'Accepted', 'Rejected'];
 
 export default function ProgramsTable({ programs }) {
+  const { starredPrograms, toggleStar, isStarred } = useStarredPrograms();
+
   const [programStatus, setProgramStatus] = useState(
     programs.reduce((acc, item) => {
       acc[item.id] = item.status || 'Not Started';
@@ -33,6 +37,7 @@ export default function ProgramsTable({ programs }) {
         <table className="min-w-full table-auto text-sm">
           <thead className="bg-gray-100 text-gray-700 text-left">
             <tr>
+              <th className="p-4">Starred</th>
               <th className="p-4">School</th>
               <th className="p-4">Tags</th>
               <th className="p-4">Description</th>
@@ -41,18 +46,34 @@ export default function ProgramsTable({ programs }) {
             </tr>
           </thead>
           <tbody className="bg-white">
-            {programs.map((item) => (
+          {[...programs]
+            .sort((a, b) => (isStarred(b.id) ? 1 : 0) - (isStarred(a.id) ? 1 : 0)) // ⭐ sort starred to top
+            .map((item) => (
               <tr key={item.id} className="border-t hover:bg-gray-50">
+                
+                <td className="p-4 text-center">
+                    <button
+                        onClick={() => toggleStar(item.id)}
+                        className="text-indigo-500 hover:text-indigo-700"
+                        title={isStarred(item.id) ? 'Unfavorite' : 'Favorite'}
+                    >
+                        {isStarred(item.id) ? <Star fill="currentColor" /> : <StarOff />}
+                    </button>
+                </td>
                 <td className="p-4 font-medium">{item.school}</td>
                 <td className="p-4 space-x-2">
-                  {item.tags.map((tag, i) => (
+                <td className="p-4">
+                <div className="flex flex-wrap gap-2">
+                    {item.tags.map((tag, i) => (
                     <span
-                      key={i}
-                      className="inline-block bg-blue-100 text-blue-700 px-2 py-1 rounded-full text-xs font-semibold"
+                        key={i}
+                        className="bg-blue-100 text-blue-700 px-2 py-1 rounded-full text-xs font-semibold"
                     >
-                      {tag}
+                        {tag}
                     </span>
-                  ))}
+                    ))}
+                </div>
+                </td>
                 </td>
                 <td className="p-4 max-w-sm">{item.description || '-'}</td>
                 <td className="p-4">{item.deadline}</td>

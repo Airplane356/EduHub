@@ -1,10 +1,19 @@
-import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import React from 'react';
+import useStarredPrograms from '../hooks/useStarredPrograms';
+import { useNavigate } from 'react-router-dom';
 import { Star, StarOff } from 'lucide-react';
 
-const SchoolCard = ({ imageSrc, name, description, tags = [], linkTo, deadline }) => {
+const SchoolCard = ({
+  imageSrc,
+  name,
+  description,
+  tags = [],
+  linkTo,
+  deadline,
+  isStarred,
+  onStarToggle,
+}) => {
   const navigate = useNavigate();
-  const [isFavorited, setIsFavorited] = useState(false);
 
   return (
     <div className="flex flex-col sm:flex-row h-48 bg-gray-100 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition sm:items-stretch">
@@ -38,26 +47,25 @@ const SchoolCard = ({ imageSrc, name, description, tags = [], linkTo, deadline }
           {/* Favorite Star */}
           <div className="flex-shrink-0 flex items-center">
             <button
-              onClick={() => setIsFavorited(!isFavorited)}
+              onClick={onStarToggle}
               className="text-indigo-500 hover:text-indigo-700 ml-auto"
-              title={isFavorited ? 'Unfavorite' : 'Favorite'}
+              title={isStarred ? 'Unfavorite' : 'Favorite'}
             >
-              {isFavorited ? <Star fill="currentColor" /> : <StarOff />}
+              {isStarred ? <Star fill="currentColor" /> : <StarOff />}
             </button>
           </div>
         </div>
 
-        {/* Description with clamping for ellipsis (requires Tailwind line-clamp plugin) */}
+        {/* Description */}
         <p className="text-sm text-gray-700 mt-2 flex-grow line-clamp-3">
           {description}
         </p>
 
-        {/* Footer: Deadline & Action Buttons */}
+        {/* Footer */}
         <div className="mt-4 flex flex-col sm:flex-row justify-between items-start sm:items-center">
           <p className="text-sm text-gray-600">
             📅 Deadline: <span className="font-medium">{deadline}</span>
           </p>
-
           <div className="mt-2 sm:mt-0 flex gap-3">
             <button
               onClick={() => navigate(linkTo)}

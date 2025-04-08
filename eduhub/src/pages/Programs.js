@@ -4,7 +4,7 @@ import Sidebar from '../components/Sidebar';
 import Navbar from '../components/Navbar';
 import programs from '../data/ProgramList.json';
 import MrBirch from '../assets/MrBirch.png';
-
+import useStarredPrograms from '../hooks/useStarredPrograms';
 
 const imageMap = {
   "MrBirch.png": MrBirch,
@@ -13,6 +13,8 @@ const imageMap = {
 const ProgramDirectory = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedTags, setSelectedTags] = useState([]);
+
+  const { starredPrograms, toggleStar, isStarred } = useStarredPrograms();
 
   const allTags = Array.from(new Set(programs.flatMap((program) => program.tags)));
 
@@ -58,7 +60,7 @@ const ProgramDirectory = () => {
               className="w-full md:w-1/2 mb-8 p-3 rounded-lg bg-gray-200 text-gray-500 placeholder-gray-500 focus:outline-none"
             />
 
-            {/* Tag Filter Section */}
+            {/* Tag Filter */}
             <div className="mb-8">
               <h2 className="text-xl font-bold mb-4">Filter by Tags</h2>
               <div className="flex flex-wrap gap-4">
@@ -88,6 +90,8 @@ const ProgramDirectory = () => {
                     tags={program.tags}
                     linkTo={program.linkTo}
                     deadline={program.deadline}
+                    isStarred={isStarred(program.id)}
+                    onStarToggle={() => toggleStar(program.id)} 
                   />
                 </div>
               ))}

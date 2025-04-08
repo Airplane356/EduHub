@@ -15,7 +15,7 @@ export default function HomeContent() {
             Apply to various programs ranging from STEM to Arts to the International Baccalaureate!
           </p>
           <Link to="/programs">
-            <button className="bg-indigo-200 hover:bg-indigo-300 px-5 py-2 rounded-md transition">View Regional Programs</button>
+            <button className="bg-gray-200 hover:bg-gray-300 px-5 py-2 rounded-md transition">View Regional Programs</button>
           </Link>
         </div>
       </div>
@@ -28,7 +28,7 @@ export default function HomeContent() {
             We provide a centralized portal to view your child’s application statuses for all the programs they applied to.
           </p>
           <Link to="/application">
-            <button className="bg-indigo-200 hover:bg-indigo-300 px-5 py-2 rounded-md transition">View Application Status</button>
+            <button className="bg-gray-200 hover:bg-gray-300 px-5 py-2 rounded-md transition">View Application Status</button>
           </Link>
         </div>
         <img src={compChildren} alt="girl on laptop" className="rounded-2xl w-72 shadow-lg" />
