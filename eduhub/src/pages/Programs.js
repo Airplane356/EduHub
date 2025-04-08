@@ -3,11 +3,33 @@ import SchoolCard from '../components/ProgramCard';
 import Sidebar from '../components/Sidebar';
 import Navbar from '../components/Navbar';
 import programs from '../data/ProgramList.json';
-import MrBirch from '../assets/MrBirch.png';
 import useStarredPrograms from '../hooks/useStarredPrograms';
+
+// SCHOOL IMAGES
+import MrBirch from '../assets/MrBirch.png';
+import mmhs from '../assets/mmhs.png';
+import mdhs from '../assets/mdhs.jpg';
+import mss from '../assets/mss.jpeg';
+import uhs from '../assets/uhs.jpg';
+import gwwss from '../assets/gwwss.png';
+import bcss from '../assets/bcss.jpg';
+import bss from '../assets/bss.jpeg';
+import peths from '../assets/peths.jpg';
+import tss from '../assets/tss.jpg';
+import str from '../assets/str.png';
 
 const imageMap = {
   "MrBirch.png": MrBirch,
+  "mmhs.png": mmhs,
+  "mdhs.jpg": mdhs,
+  "mss.jpeg": mss,
+  "uhs.jpg": uhs,
+  "gwwss.png": gwwss,
+  "bcss.jpg": bcss,
+  "bss.jpeg": bss,
+  "peths.jpg": peths,
+  "tss.jpg": tss,
+  "str.png": str
 };
 
 const ProgramDirectory = () => {
