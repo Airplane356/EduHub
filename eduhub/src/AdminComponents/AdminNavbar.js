@@ -49,7 +49,7 @@ export default function AdminNavbar() {
           {dropdownOpen && (
             <div className="absolute right-0 mt-2 w-40 bg-blue-500 border rounded-md shadow-lg z-10 overflow-hidden">
               <Link to="/" className="block px-4 py-2 text-center hover:bg-blue-700 text-sm text-white">Student Profile</Link>
-              <Link to="/AdminHome" className="block px-4 py-2 text-center px-4 py-2 text-sm hover:bg-blue-700 text-white">
+              <Link to="/adminhome" className="block px-4 py-2 text-center px-4 py-2 text-sm hover:bg-blue-700 text-white">
                 Admin Profile
               </Link>
             </div>
